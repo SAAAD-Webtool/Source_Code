@@ -6,7 +6,7 @@ import os
 app = Flask(__name__, template_folder='templates')
 
 
-df = pd.read_excel("/Users/lathagovindarajan/Laddu/Internship/SAAAD/descriptions.xlsx", engine='openpyxl')
+df = pd.read_excel("path to descriptions.xlsx", engine='openpyxl')
 image_base_dir = ("static/compund images")
 
 def get_image_path(compund_name):
@@ -77,7 +77,7 @@ def search():
 
 @app.route('/download/<filename>')
 def download_file(filename):
-    file_path = os.path.join("/Users/lathagovindarajan/Laddu/Internship/SAAAD/sialic acid analog", filename)
+    file_path = os.path.join("path to sialic acid analog", filename)
     if not os.path.exists(file_path):
         return jsonify({'error': 'File not found'}), 404
     return send_file(file_path, as_attachment=True)
@@ -85,8 +85,8 @@ def download_file(filename):
 
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
-SMTP_USERNAME = 'lathamythili2000@gmail.com'
-SMTP_PASSWORD = 'tece eefp piol nyxz'  # Use app-specific password if 2FA is enabled
+SMTP_USERNAME = 'your_gmail_username'
+SMTP_PASSWORD = 'your_gmail_app_password'  # Use app-specific password if 2FA is enabled
 
 @app.route('/submit_question', methods=['POST'])
 def ask_question():
