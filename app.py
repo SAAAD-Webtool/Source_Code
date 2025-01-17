@@ -18,7 +18,7 @@ def get_image_path(compund_name):
 
 @app.route('/')
 def index():
-    return render_template('test.html')
+    return render_template('index.html')
 
 @app.route('/suggestions', methods=['GET'])
 def suggestions():
