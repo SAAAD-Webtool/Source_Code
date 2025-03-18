@@ -54,7 +54,7 @@
             max-width: 600px;
             margin: 0 auto;
         }
-		 
+
 
         .highlight {
             color: #ff6f00;
@@ -234,7 +234,7 @@
         .bottom-images .card-custom {
             margin-bottom: 20px;
         }
-	.section-title {
+  .section-title {
     text-align: center;
     color: #333;
     font-family: 'Arial', sans-serif;
@@ -289,7 +289,7 @@
 .faq-question {
     font-size: 18px;
     font-weight: bold;
-    
+
     cursor: pointer;
     margin-bottom: 10px;
 }
@@ -430,7 +430,7 @@ textarea {
         <p>For detailed guidance, check out our <a href="#" class="highlight">tutorial</a> for help on how to search our database effectively. If you have questions, refer to the <a href="#" class="highlight">FAQ</a> section for quick answers.</p>
     </div>
 </div>
-		<div class="container">
+    <div class="container">
         <div class="row image-container">
             <div class="col-md-6">
                 <img src="static/images/s1.jpeg" alt="Image 1" class="img-fluid">
@@ -457,20 +457,20 @@ textarea {
             <br>
             <div id="result-container" class="result-container"></div>
         </div>
-		
+
         <div class="tab-pane fade" id="Tutorial" role="tabpanel" aria-labelledby="Tutorial-tab">
              <br><h4><b>TUTORIAL</b> </h4>
-			 <P> The SEARCH can be used to search for entries of your interest. It can be done in <b><i style="color:green">SIMPLE SEARCH</i></B></P>
-			 <h5><b>SIMPLE SEARCH (search by the IUPAC name)</b></h5><br>
-			 <img src="{{ url_for('static', filename='images/searchimage.png') }}" style="width:300px; height:200px;" >
-			<P><br>User can search for any related term of sialic acid analogues in the search box and obtain the result. below shows the results
-			for the search query "2,7-d2-2Heq -Neu5Ac".</p>
-			<img src="{{ url_for('static', filename='images/search_output.png') }}" style="width:700px; height:200px;">
-			<img src="{{ url_for('static', filename='images/searchoutput2.png') }}" style="width:700px; height:200px;">
-			<p><br>User can also search using mutiple keywords by separated values. <br>Eg. "glycoloylneuraminic, trifluoroacetyl"
-			<br><b>Note </b>: A space after the comma is madatory while using mutliple keywords and a maximum keywords are acceptable.</p>
+       <P> The SEARCH can be used to search for entries of your interest. It can be done in <b><i style="color:green">SIMPLE SEARCH</i></B></P>
+       <h5><b>SIMPLE SEARCH (search by the IUPAC name)</b></h5><br>
+       <img src="{{ url_for('static', filename='images/searchimage.png') }}" style="width:300px; height:200px;" >
+      <P><br>User can search for any related term of sialic acid analogues in the search box and obtain the result. below shows the results
+      for the search query "2,7-d2-2Heq -Neu5Ac".</p>
+      <img src="{{ url_for('static', filename='images/search_output.png') }}" style="width:700px; height:200px;">
+      <img src="{{ url_for('static', filename='images/searchoutput2.png') }}" style="width:700px; height:200px;">
+      <p><br>User can also search using mutiple keywords by separated values. <br>Eg. "glycoloylneuraminic, trifluoroacetyl"
+      <br><b>Note </b>: A space after the comma is madatory while using mutliple keywords and a maximum keywords are acceptable.</p>
         </div>
-		
+
      <div class="tab-pane fade" id="Statistics" role="tabpanel" aria-labelledby="Statistics-tab">
     <br>
     <h4 class="section-title">📊 <i>Statistics of the SAAAD Database</i> 📊</h4>
@@ -514,6 +514,8 @@ textarea {
         <section id="ask-question">
             <h3 class="ask-header">Ask a Question</h3>
             <form id="question-form" action="/submit_question" method="post">
+                <label for="user-email">Your Email:</label>
+                <input type="email" id="user-email" name="email" required><br><br>
                 <label for="user-question">Your Question:</label>
                 <textarea class="form-control" id="user-question" name="user_question" rows="3" placeholder="Type your question here..." required></textarea>
                 <button type="submit" class="btn-submit">Submit</button>
@@ -521,7 +523,7 @@ textarea {
         </section>
     </div>
 </div>
-		
+
 <div class="tab-pane fade" id="Links" role="tabpanel" aria-labelledby="Links-tab">
     <div class="container mt-5">
         <h5 style="font-size: 1.5rem; color: #333; text-align: center; margin-bottom: 20px;">Related Links for Sialic Acid Analogues</h5>
@@ -687,7 +689,7 @@ textarea {
                                 var div = document.createElement('div');
                                 div.classList.add('result');
                                 div.innerHTML = `<h3>${result['Sialic acid analogues']}</h3><p><strong>SMILES:</strong> ${result['SMILES']}</p><p><strong>Formula:</strong> ${result['Formula']}</p><p><strong>Molecular Weight:</strong> ${result['Molecular weight/g/mol']}</p><p><strong>Num. H-bond Acceptors:</strong> ${result['Num. H-bond acceptors']}</p><p><strong>Num. H-bond Donors:</strong> ${result['Num. H-bond donors']}</p><p><strong>Log Po/w (iLOGP):</strong> ${result['Log Po/w (iLOGP)']}</p><p><strong>Log Po/w (XLOGP3):</strong> ${result['Log Po/w (XLOGP3']}</p><p><strong>Log Po/w (WLOGP):</strong> ${result['Log Po/w (WLOGP)']}</p><p><strong>Log Po/w (MLOGP):</strong> ${result['Log Po/w (MLOGP)']}</p><p><strong>Log Po/w (SILICOS-IT):</strong> ${result['Log Po/w (SILICOS-IT)']}</p><p><strong>Consensus Log Po/w:</strong> ${result['Consensus Log Po/w']}</p><a href="/download/${result['Sialic acid analogues']}.mol" class="download-btn">Download .mol file</a>`;
-								resultContainer.appendChild(div);
+                resultContainer.appendChild(div);
                             });
                         } else {
                             resultContainer.innerHTML = `<p>No results found.</p>`;
@@ -695,7 +697,7 @@ textarea {
                     });
             }
         }
-	</script>
+  </script>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
